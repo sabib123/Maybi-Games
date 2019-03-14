@@ -4,7 +4,7 @@
     <style>
       body {
           margin: 0px;
-          background-image: linear-gradient(45deg, rgb(255, 255, 255), rgb(180, 180, 180));
+          background-image: linear-gradient(0deg, rgb(255, 200, 200), rgb(255, 255, 200), rgb(200, 255, 200), rgb(200, 255, 255), rgb(200, 200, 255), rgb(255, 200, 255), rgb(255, 200, 200));
       }
 
       a {
@@ -32,76 +32,35 @@
         position: fixed;
       }
 
-      .sidebarNav {
-        background-image: linear-gradient(0deg, rgb(255, 210, 210), rgb(255, 255, 210), rgb(210, 255, 210), rgb(210, 255, 255), rgb(210, 210, 255), rgb(255, 210, 255), rgb(255, 210, 210));
+      center h1 {
+        margin-top: 120px;
+        color: black;
+        font-family: Montserrat;
+        width: 90%;
+      }
+
+      .previewLinks {
+        color: rgb(0, 0, 0);
+        margin-top: 0px;
+        width: 90%;
+      }
+
+      .previewLinks a {
+        background-image: linear-gradient(-45deg, rgba(100, 100, 100, 0.4), rgba(255, 255, 255, 0.4));
+        display: inline-block;
         width: 200px;
-        height: calc(100% - 80px);
-        position: fixed;
-        top: 80px;
-        border-right: solid;
-        border-width: 4px;
-        border-color: rgb(55, 55, 65);
-        color: rgba(0, 0, 0, 0.7);
+        height: 100px;
+        margin: 10px;
+        line-height: 100px;
+        color: black;
+        border-radius: 25px;
         font-family: Montserrat;
-        cursor: default;
-        overflow: auto;
-        z-index: 1;
-      }
-
-      .sidebarNav::-webkit-scrollbar {
-        display: none;
-      }
-
-      .sidebarNav h3 {
-        text-align: center;
-        margin: 25px 0px;
-        font-size: 20px;
-        text-decoration: underline;
-      }
-
-      .sidebarNav a {
-        margin: 0px;
-        color: rgba(0, 0, 0, 0.7);
-        font-size: 14px;
+        border: solid grey;
         transition: 0.3s;
       }
 
-      .sidebarNav div:hover {
-        background-color: rgba(0, 0, 0, 0.25);
-        transition: 0.3s;
-      }
-
-      .sidebarNav div {
-        width: 100%;
-        margin: 0px;
-        padding: 5px 20px;
-        cursor: pointer;
-      }
-
-      .gameContainer {
-        margin-left: 200px;
-        margin-top: 100px;
-        width: calc(100%-200px);
-        height: 600px;
-        overflow: hidden;
-      }
-
-      embed {
-        height: 500px;
-        width: 500px;
-        border-style: solid;
-        border-width: 4px;
-        border-radius: 10px;
-        border-color: rgb(85, 85, 85);
-      }
-
-      .siteIntro {
-        margin-top: 150px;
-        margin-left: 250px;
-        margin-right: 50px;
-        padding: auto;
-        font-family: Montserrat;
-        width: 60%;
+      .previewLinks a:hover {
+        border-radius:0px;
       }
     </style>
   </head>
@@ -111,21 +70,17 @@
     <div class="topbarNav" id="topbarNav">
       <h1 id="siteTitle">Maybi Games</h1>
     </div>
-
-    <div class="sidebarNav" id="sidebarNav">
-      <h3 id="sidebarNavTitle">Play Games</h3>
-      <a href="Maybi_AgeOfWar.html"><div>Age of War</div></a>
-      <a href="Maybi_BTD3.html"><div>Bloons TD 3</div></a>
-      <a href="Maybi_BTD4.html"><div>Bloons TD 4</div></a>
-      <a href="Maybi_Flight.html"><div>Flight</div></a>
-      <a href="Maybi_StickWar.html"><div>Stick War</div></a>
-      <a href="Maybi_TankTrouble.html"><div>Tank Trouble</div></a>
-      <a href="Maybi_Tetris.html"><div>Tetris</div></a>
-    </div>
     <center>
-    <div class="siteIntro">
-      <h1>Play some free unblocked flash games in the box to the left.<b> New content coming soon!</h1>
-    </div>
-  </center>
+      <h1>Maybi you want to play some games?</h1>
+      <div class="previewLinks" id="homeGames">
+        <a href="Maybi_AgeOfWar.html">Age of War</a>
+        <a href="Maybi_BTD3.html">Bloons TD 3</a>
+        <a href="Maybi_BTD4.html">Bloons TD 4</a>
+        <a href="Maybi_Flight.html">Flight</a>
+        <a href="Maybi_StickWar.html">Stick War</a>
+        <a href="Maybi_TankTrouble.html">Tank Trouble</a>
+        <a href="Maybi_Tetris.html">Tetris</a>
+      </div>
+    </center>
   </body>
 </html>
