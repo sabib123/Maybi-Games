@@ -22,6 +22,7 @@
        color: rgb(255, 255, 255);
        display: inline-block;
        z-index: 1;
+       animation: slideIn 1s;
      }
 
      .topbarNav h1 {
@@ -38,6 +39,7 @@
        color: black;
        font-family: Montserrat;
        width: 90%;
+       animation: slideIn 1s;
      }
 
      .previewLinks {
@@ -80,6 +82,17 @@
      .ad p {
        padding: 27px;
      }
+
+     @keyframes fadeIn {
+       from { opacity: 0; }
+       to   { opacity: 1; }
+     }
+
+     @keyframes slideIn {
+       0% {
+         transform: translateY(-100%);
+       }
+     }
    </style>
  </head>
 
@@ -90,23 +103,23 @@
    <center>
      <h1>Maybi you want to play some games?</h1>
      <div class="previewLinks" id="homeGames">
-       <a href="Maybi_AgeOfWar.html">Age of War</a>
-       <a href="Maybi_AgeOfWar2.html">Age of War 2</a>
-       <a href="Maybi_BTD3.html">Bloons TD 3</a>
-       <a href="Maybi_BTD4.html">Bloons TD 4</a>
-       <a href="Maybi_BTD5.html">Bloons TD 5</a>
-       <a href="Maybi_ClickerHeroes.html">Clicker Heroes</a>
-       <a href="Maybi_DuckHunt.html">Duck Hunt</a>
-       <a href="Maybi_FancyPants.html">Fancy Pants</a>
-       <a href="Maybi_FancyPants2.html">Fancy Pants 2</a>
-       <a href="Maybi_Flight.html">Flight</a>
-       <a href="Maybi_Jacksmith.html">Jacksmith</a>
-       <a href="Maybi_Raze.html">Raze</a>
-       <a href="Maybi_StickWar.html">Stick War</a>
-       <a href="Maybi_StickWar2.html">Stick War 2</a>
-       <a href="Maybi_SushiCat.html">Sushi Cat</a>
-       <a href="Maybi_TankTrouble.html">Tank Trouble</a>
-       <a href="Maybi_Tetris.html">Tetris</a>
+       <a href="Maybi_AgeOfWar.html" style="animation: fadeIn 1s;">Age of War</a>
+       <a href="Maybi_AgeOfWar2.html" style="animation: fadeIn 1.1s;">Age of War 2</a>
+       <a href="Maybi_BTD3.html" style="animation: fadeIn 1.2s;">Bloons TD 3</a>
+       <a href="Maybi_BTD4.html" style="animation: fadeIn 1.3s;">Bloons TD 4</a>
+       <a href="Maybi_BTD5.html" style="animation: fadeIn 1.4s;">Bloons TD 5</a>
+       <a href="Maybi_ClickerHeroes.html" style="animation: fadeIn 1.5s;">Clicker Heroes</a>
+       <a href="Maybi_DuckHunt.html" style="animation: fadeIn 1.6s;">Duck Hunt</a>
+       <a href="Maybi_FancyPants.html" style="animation: fadeIn 1.7s;">Fancy Pants</a>
+       <a href="Maybi_FancyPants2.html" style="animation: fadeIn 1.8s;">Fancy Pants 2</a>
+       <a href="Maybi_Flight.html" style="animation: fadeIn 1.9s;">Flight</a>
+       <a href="Maybi_Jacksmith.html" style="animation: fadeIn 2s;">Jacksmith</a>
+       <a href="Maybi_Raze.html" style="animation: fadeIn 2.1s;">Raze</a>
+       <a href="Maybi_StickWar.html" style="animation: fadeIn 2.2s;">Stick War</a>
+       <a href="Maybi_StickWar2.html" style="animation: fadeIn 2.3s;">Stick War 2</a>
+       <a href="Maybi_SushiCat.html" style="animation: fadeIn 2.4s;">Sushi Cat</a>
+       <a href="Maybi_TankTrouble.html" style="animation: fadeIn 2.5s;">Tank Trouble</a>
+       <a href="Maybi_Tetris.html" style="animation: fadeIn 2.6s;">Tetris</a>
      </div>
      <div class="ad">
        <p>Your advertisement here. Contact for information: sabiblankenship@gmail.com</p>
