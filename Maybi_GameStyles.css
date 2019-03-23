@@ -47,8 +47,8 @@ a {
 }
 
 @keyframes expandNav {
-  from {width: 0px}
-  to {width: 200px}
+  from {height: 0px}
+  to {height: 200px}
 }
 
 .sidebarNav::-webkit-scrollbar {
