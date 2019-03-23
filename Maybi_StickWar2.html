@@ -1,151 +1,8 @@
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <style>
-      body {
-          margin: 0px;
-          background-image: linear-gradient(45deg, rgb(255, 255, 255), rgb(180, 180, 180));
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      .topbarNav {
-        background-image: linear-gradient(0deg, rgb(55, 55, 65), rgb(40, 40, 50));
-        height: 80px;
-        width: 100%;
-        position: fixed;
-        top: 0px;
-        font-family: Montserrat;
-        color: rgb(255, 255, 255);
-        display: inline-block;
-        z-index: 1;
-      }
-
-      .topbarNav h1 {
-        font-size: 30px;
-        top: 0px;
-        left: 50px;
-        padding: 0px;
-        cursor: pointer;
-        position: fixed;
-      }
-
-      .sidebarNav {
-        background-image: linear-gradient(0deg, rgb(255, 210, 210), rgb(255, 255, 210), rgb(210, 255, 210), rgb(210, 255, 255), rgb(210, 210, 255), rgb(255, 210, 255), rgb(255, 210, 210));
-        width: 200px;
-        height: calc(100% - 80px);
-        position: fixed;
-        top: 80px;
-        border-right: solid;
-        border-width: 4px;
-        border-color: rgb(55, 55, 65);
-        color: rgba(0, 0, 0, 0.7);
-        font-family: Montserrat;
-        cursor: default;
-        overflow: auto;
-        z-index: 1;
-        white-space: nowrap;
-        animation: expandNav 1s;
-      }
-
-      @keyframes expandNav {
-        from {width: 0px}
-        to {width: 200px}
-      }
-
-      .sidebarNav::-webkit-scrollbar {
-        display: none;
-      }
-
-      .sidebarNav h3 {
-        text-align: center;
-        margin: 25px 0px;
-        font-size: 20px;
-        text-decoration: underline;
-      }
-
-      .sidebarNav a {
-        margin: 0px;
-        color: rgba(0, 0, 0, 0.7);
-        font-size: 14px;
-        transition: 0.3s;
-      }
-
-      .sidebarNav div:hover {
-        background-color: rgba(0, 0, 0, 0.25);
-        transition: 0.3s;
-      }
-
-      .sidebarNav div {
-        width: 100%;
-        margin: 0px;
-        padding: 5px 20px;
-        cursor: pointer;
-      }
-
-      .gameContainer {
-        margin-left: 200px;
-        margin-top: 100px;
-        width: calc(100%-200px);
-        height: calc(100%-80px);
-        overflow: hidden;
-      }
-
-      embed {
-        height: 449px;
-        width: 545px;
-        border-style: solid;
-        border-width: 4px;
-        border-radius: 0px;
-        border-color: rgb(85, 85, 85);
-        transition: 0.75s;
-      }
-
-      @keyframes fadein {
-        from {opacity: 0}
-        to {opacity: 1}
-      }
-
-      button {
-        margin-top: 25px;
-        height: 50px;
-        width: 100px;
-        color: black;
-        font-size: 14px;
-        background-color: rgb(160, 160, 255);
-        border: solid rgba(0, 0, 0, 0);
-        border-radius: 5px;
-        outline: none;
-        cursor: pointer;
-      }
-
-      button:hover {
-        filter: brightness(85%);
-      }
-    </style>
-    <script>
-      function titleRedirect () {
-       window.location.href = "index.html";
-      }
-    
-      function growGame() {
-        var varOne = document.getElementById("game");
-        var height = varOne.clientHeight;
-        var width = varOne.clientWidth;
-        document.getElementById("game").style.width = width * 1.1 + "px";
-        document.getElementById("game").style.height = height * 1.1 + "px";
-      }
-
-      function shrinkGame() {
-        var varOne = document.getElementById("game");
-        var height = varOne.clientHeight;
-        var width = varOne.clientWidth;
-        document.getElementById("game").style.width = width * 0.9 + "px";
-        document.getElementById("game").style.height = height * 0.9 + "px";
-      }
-    </script>
+    <link rel="stylesheet" href="Maybi_GameStyles.css">
+    <script src="Maybi_GameScripts.js"></script>
   </head>
 
   <body>
@@ -177,7 +34,7 @@
     <div class="gameContainer">
       <center>
         <h3 style="font-family: Montserrat">Stick War 2</h3>
-        <embed src="Maybi_StickWar2.swf" id="game"><br>
+        <embed src="Maybi_StickWar2.swf" id="game" style="height: 449px; width: 545px;"><br>
         <button onclick="shrinkGame()" style="background-color: rgb(255, 160, 160)">&#8594;&#8592;</button>
         <button onclick="growGame()" style="background-color: rgb(160, 255, 160)">&#8592;&#8594;</button>
       </center>
