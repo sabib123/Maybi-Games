@@ -43,13 +43,14 @@ a {
   overflow: auto;
   z-index: 1;
   white-space: nowrap;
-  animation: expandNav 1s;
+  filter: hue-rotate(0deg);
+  animation: re-color 1s;
 }
 
-@keyframes expandNav {
-  from {height: 0px}
-  to {height: calc(100% - 80px)}
-}
+@keyframes re-color {
+   from {filter: hue-rotate(0deg);}
+   to {filter: hue-rotate(360deg);}
+ }
 
 .sidebarNav::-webkit-scrollbar {
   display: none;
