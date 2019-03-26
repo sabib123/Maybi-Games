@@ -2,11 +2,30 @@
  <head>
    <link rel="shortcut icon" type="png" href="favicon.ico">
    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
    <style>
      body {
          margin: 0px;
-         background-image: linear-gradient(135deg, rgb(255, 180, 150), rgb(255, 170, 255));
      }
+
+     .backgroundHue {
+       background-image: linear-gradient(135deg, rgb(140, 140, 255), rgb(255, 100, 230));
+       animation: re-color 10s infinite;
+       position: fixed;
+       top: 0px;
+       left: 0px;
+       margin: 0px;
+       width: 100%;
+       height: 100%;
+       z-index: -1;
+     }
+
+     @keyframes re-color {
+        0% {filter: hue-rotate(0deg);}
+        25% {filter: hue-rotate(20deg);}
+        75% {filter: hue-rotate(-20deg);}
+        100% {filter: hue-rotate(0deg);}
+      }
 
      a {
        text-decoration: none;
@@ -40,7 +59,7 @@
        font-family: Montserrat;
        width: 90%;
        animation: slideIn 1s;
-       text-shadow: 3px 3px 2px black;
+       text-shadow: 1.5px 1.5px 2px black;
      }
 
      .previewLinks {
@@ -51,18 +70,20 @@
      }
 
      .previewLinks a {
-       background-image: linear-gradient(-45deg, rgb(255, 255, 255), rgb(210, 210, 210));
+       background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.7), rgba(210, 210, 210, 0.7));
        display: inline-block;
        width: 200px;
        height: 100px;
        margin: 10px;
+       font-size: 18px;
        line-height: 100px;
        color: rgb(50, 50, 50);
        border-radius: 25px;
-       font-family: Montserrat;
+       font-family: Lato;
        border: hidden;
        transition: 0.3s;
        box-shadow: 0px 0px 10px black;
+       overflow: hidden;
      }
 
      .previewLinks a:hover {
@@ -83,6 +104,7 @@
  </head>
 
  <body>
+   <div class="backgroundHue"></div>
    <div class="topbarNav" id="topbarNav">
      <h1 id="siteTitle">Maybi Games</h1>
    </div>
