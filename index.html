@@ -6,10 +6,7 @@
    <style>
      body {
          margin: 0px;
-         cursor: default;
-         transition: 0.3s;
      }
-
      .backgroundHue {
        background-image: linear-gradient(135deg, rgb(140, 140, 255), rgb(255, 100, 230));
        animation: re-color 10s infinite;
@@ -21,18 +18,15 @@
        height: 100%;
        z-index: -1;
      }
-
      @keyframes re-color {
         0% {filter: hue-rotate(0deg);}
         25% {filter: hue-rotate(20deg);}
         75% {filter: hue-rotate(-20deg);}
         100% {filter: hue-rotate(0deg);}
       }
-
      a {
        text-decoration: none;
      }
-
      .topbarNav {
        background-image: linear-gradient(0deg, rgb(55, 55, 65), rgb(40, 40, 50));
        height: 80px;
@@ -42,11 +36,9 @@
        font-family: Montserrat;
        color: rgb(255, 255, 255);
        display: inline-block;
-       z-index: 2;
-       transition: 0.3s;
+       z-index: 1;
        animation: slideIn 1s;
      }
-
      .topbarNav h1 {
        font-size: 30px;
        top: 0px;
@@ -55,7 +47,6 @@
        cursor: default;
        position: fixed;
      }
-
      center h1 {
        margin-top: 120px;
        color: white;
@@ -63,17 +54,13 @@
        width: 90%;
        animation: slideIn 1s;
        text-shadow: 1.5px 1.5px 2px black;
-       transition: 0.3s;
-       font-size: 30px;
      }
-
      .previewLinks {
        color: rgb(255, 255, 255);
        margin: 0px;
        margin-bottom: 50px;
        width: 90%;
      }
-
      .previewLinks a {
        background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.7), rgba(210, 210, 210, 0.7));
        display: inline-block;
@@ -90,226 +77,28 @@
        box-shadow: 0px 0px 10px black;
        overflow: hidden;
      }
-
      .previewLinks a:hover {
        border-radius:0px;
      }
-
      @keyframes fadeIn {
        from {opacity: 0;}
        to {opacity: 1;}
      }
-
      @keyframes slideIn {
        0% {
          transform: translateY(-100%);
        }
      }
-
-     #sideEffects {
-       font-family: Lato;
-       position: fixed;
-       left: 0px;
-       top: calc(50% + 30px);
-       width: 50px;
-       height: 50px;
-       background-color: rgb(215, 215, 215);
-       border-radius: 0px 15px 15px 0px;
-       cursor: pointer;
-       transition: 0.3s;
-       box-shadow: 0px 0px 10px black;
-       z-index: 3;
-       overflow: hidden;
-       padding: 0px;
-     }
-
-     #sideEffects:hover {
-       border-radius: 0px;
-     }
-
-     #sideEffects h2 {
-       margin: 0px;
-       padding: 0px;
-       text-align: center;
-       line-height: 50px;
-     }
-
-     #effects {
-       padding: 0px;
-       display: none;
-       margin-top: 0px;
-       position: absolute;
-       top: 50%;
-       transform: translateY(-50%);
-     }
-
-     #effects h3 {
-       height: 200px;
-       width: 120px;
-       text-align: center;
-       transition: 0.3s;
-       border-radius: 10px;
-       padding: 10px;
-       font-size: 20px;
-       margin: 5px;
-     }
-
-     .switch {
-       position: relative;
-       display: inline-block;
-       width: 60px;
-       height: 34px;
-       margin-top: 10px;
-     }
-
-     .switch input {
-       opacity: 0;
-       width: 0;
-       height: 0;
-     }
-
-     .slider {
-       position: absolute;
-       cursor: pointer;
-       top: 0;
-       left: 0;
-       right: 0;
-       bottom: 0;
-       background-color: rgb(55, 55, 65);
-       transition: .3s;
-     }
-
-     .slider:before {
-       position: absolute;
-       content: "";
-       height: 26px;
-       width: 26px;
-       left: 4px;
-       bottom: 4px;
-       background-color: white;
-       transition: .3s;
-     }
-
-      input:checked + .slider {
-        background-color: rgb(255, 140, 140);
-      }
-
-      input:checked + .slider:before {
-        transform: translateX(26px);
-      }
-
-      .slider.round {
-        border-radius: 34px;
-      }
-
-      .slider.round:before {
-        border-radius: 50%;
-      }
-
-      .SFXSlider {
-        transform: rotate(-90deg);
-        -webkit-appearance: none;
-        width: 100%;
-        height: 15px;
-        border-radius: 100px;
-        background: rgb(55, 55, 65);
-        outline: none;
-      }
-
-      .SFXSlider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        background: rgb(255, 255, 255);
-        cursor: pointer;
-      }
    </style>
-
-   <script>
-    var SFXstatus = 0;
-    var delayInMilliseconds = 300;
-    var brightness = 1;
-
-    function openSFX() {
-      if (SFXstatus == 0){
-        document.getElementById("sideEffects").style.height = "calc(100% - 80px)";
-        document.getElementById("sideEffects").style.top = "80px";
-        document.getElementById("sideEffects").style.cursor = "default";
-        document.getElementById("SFXicon").style.display = "none";
-        document.getElementById("effects").style.lineHeight = "0px";
-        SFXstatus = 1;
-        setTimeout(function(){
-          document.getElementById("sideEffects").style.width = "150px";
-          document.getElementById("sideEffects").style.borderRadius = "0px";
-          document.getElementById("effects").style.display = "inline-block";
-        }, 300);
-      }
-    }
-
-    function closeSFX(event) {
-      var x = event.clientX;
-      if ((x > 150) && (SFXstatus == 1)) {
-        document.getElementById("sideEffects").style.width = "50px";
-        document.getElementById("sideEffects").style.borderRadius = "0px 15px 15px 0px";
-        SFXstatus = 0;
-        setTimeout(function(){
-          document.getElementById("SFXicon").style.display = "block";
-          document.getElementById("effects").style.display = "none";
-          document.getElementById("sideEffects").style.height = "50px";
-          document.getElementById("sideEffects").style.lineHeight = "50px";
-          document.getElementById("sideEffects").style.top = "calc(50% + 30px)";
-          document.getElementById("sideEffects").style.cursor = "pointer";
-        }, 300);
-      }
-    }
-
-    function changeBrightness() {
-        var brightness = ((document.getElementById('brightnessSlider').value / 300) + 0.66);
-        document.getElementById("siteBody").style.filter = "brightness(" + brightness + ")";
-    };
-
-    function resizeIcons() {
-        var size = ((document.getElementById('iconSlider').value / 300) + 0.66);
-        var links = document.getElementById('homeGames').getElementsByTagName('a');
-        for(var i=0; i<links.length; i++) {
-          links[i].style.fontSize = (18 * size) + "px";
-          links[i].style.width = (250 * size) + "px";
-          links[i].style.height = (80 * size) + "px";
-          links[i].style.borderRadius = (25 * size) + "px";
-          links[i].style.lineHeight = (80 * size) + "px";
-        }
-    };
-
-    function logos() {
-      if (document.getElementById("logoSwitch").checked == true) {
-        document.getElementById("topbarNav").style.height = "80";
-        document.getElementById("sideEffects").style.top = "80";
-        document.getElementById("sideEffects").style.height = "calc(100% - 80px)";
-        document.getElementById("siteTitle").style.opacity = "1";
-        document.getElementById("maybiSlogan").style.fontSize = "30px";
-        document.getElementById("maybiSlogan").style.marginTop = "120px";
-
-      } else {
-        document.getElementById("topbarNav").style.height = "0";
-        document.getElementById("sideEffects").style.top = "0";
-        document.getElementById("sideEffects").style.height = "100%";
-        document.getElementById("siteTitle").style.opacity = "0";
-        document.getElementById("maybiSlogan").style.fontSize = "0";
-        document.getElementById("maybiSlogan").style.marginTop = "40px";
-      }
-    }
-   </script>
  </head>
 
- <body onclick="closeSFX(event)" id="siteBody">
-   <div class="backgroundHue" id="backgroundHue"></div>
+ <body>
+   <div class="backgroundHue"></div>
    <div class="topbarNav" id="topbarNav">
      <h1 id="siteTitle">Maybi Games</h1>
    </div>
-   <center id="content">
-     <h1 id="maybiSlogan">Maybi you want to play some games?</h1>
+   <center>
+     <h1>Maybi you want to play some games?</h1>
      <div class="previewLinks" id="homeGames">
        <a href="Maybi_2048.html" style="animation: fadeIn 1s;">2048</a>
        <a href="Maybi_AgeOfDefense3.html" style="animation: fadeIn 1.1s;">Age of Defense 3</a>
@@ -326,7 +115,7 @@
        <a href="Maybi_DuckLife4.html" style="animation: fadeIn 2.2s;">Duck Life 4</a>
        <a href="Maybi_DummiesNeverFail.html" style="animation: fadeIn 2.3s;">Dummies Never Fail</a>
        <a href="Maybi_EarnToDie.html" style="animation: fadeIn 2.4s;">Earn To Die</a>
-       <a href="Maybi_EarnToDie2.html" style="animation: fadeIn 2.5s;">Earn To Die 2</a>
+       <a href="Maybi_EarnToDie2.html" style="animation: fadeIn 2.5s;">Earn To Die 2</a> 
        <a href="Maybi_EarnToDie2012.html" style="animation: fadeIn 2.6s;">Earn To Die 2012</a>
        <a href="Maybi_EarnToDie2012Part2.html" style="animation: fadeIn 2.7s;">Earn To Die 2012 Part 2</a>
        <a href="Maybi_ElectricMan.html" style="animation: fadeIn 2.8s;">Electric Man</a>
@@ -362,13 +151,5 @@
        <a href="Maybi_Tetris.html" style="animation: fadeIn 5.8s;">Tetris</a>
      </div>
    </center>
-   <div id="sideEffects" onclick="openSFX();">
-     <h2 id="SFXicon">&#9776;</h2>
-      <div id="effects">
-        <h3>Brightness<input type="range" onchange="changeBrightness()" style="margin-top: 100px" class="SFXSlider" value="100" id="brightnessSlider"></input></h3>
-        <h3>Icon Size<input type="range" onchange="resizeIcons()" style="margin-top: 100px" class="SFXSlider" value="100" id="iconSlider"></input></h3>
-        <h3 style="height: 80px; line-height: 50px;">Logos<br><label class="switch"><input type="checkbox" checked="checked" onchange="logos()" id="logoSwitch"><span class="slider round"></span></label></h3>
-      </div>
-    </div>
-  </body>
+ </body>
 </html>
