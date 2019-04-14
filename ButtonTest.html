@@ -1,0 +1,370 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
+    <title>CSS Button Maker</title>
+    <style>
+      body {
+        background-color: rgb(255, 255, 255);
+        margin: 0px;
+        font-family: Nunito;
+        user-select: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      ::selection {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .buttonContainer {
+        text-align: center;
+        height: 50%;
+        width: 100%;
+        overflow: hidden;
+        background-color: black;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        box-shadow: 0px 0px 5px black;
+      }
+
+      .a {
+        margin: 0px;
+        padding: 10px 15px;
+        border: 4px white solid;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        font-family: Nunito;
+        font-size: 20px;
+        transition: 0s;
+        outline: none;
+        margin-top: 25vh;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      .adjustmentArea {
+        margin: 25px;
+        margin-top: calc(50vh + 30px);
+        line-height: 25px;
+        text-align: center;
+      }
+
+      .adjustmentArea div {
+        background-color: rgb(215, 215, 215);
+        border-radius: 10px;
+        padding: 15px;
+        margin: 0px;
+        box-shadow: 0px 0px 5px black;
+      }
+
+      .adjustmentArea div:hover {
+        box-shadow: 0px 0px 10px black;
+      }
+
+      @media only screen and (min-width: 750px) {
+        .adjustmentArea {
+          width: 700px;
+        }
+      }
+
+      .adjustmentArea div input {
+        width: 90%;
+      }
+
+      .cssCodeContainer {
+        position: fixed;
+        top: calc(50% + 30px);
+        right: 25px;
+        width: calc(100% - 800px);
+        height: calc(50% - 50px);
+        background-color: rgb(30, 30, 30);
+        border-radius: 10px;
+        font-family: Courier;
+        box-shadow: 0px 0px 5px black;
+        user-select: all;
+        cursor: pointer;
+        overflow: scroll;
+      }
+
+      @media only screen and (max-width: 1000px) {
+        .cssCodeContainer {
+          position: inherit;
+          width: calc(100% - 50px);
+          height: calc(50% - 50px);
+          margin: 25px;
+        }
+      }
+
+      .cssCodeContainer:hover {
+        box-shadow: 0px 0px 20px black;
+      }
+
+      .buttonRestCSS {
+        padding: 25px;
+        color: rgb(210, 210, 210);
+      }
+
+      .tabContainer {
+        position: fixed;
+        bottom: 50%;
+        left: 0px;
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+      }
+
+      .tab {
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        width: 50%;
+        border-radius: 10px 10px 0px 0px;
+        background-color: rgb(230, 230, 230);
+        line-height: 40px;
+        box-shadow: 0px 0px 5px black;
+        cursor: pointer;
+        color: black;
+        font-weight: 200px
+      }
+
+      .infoArea {
+        margin: 30px;
+        margin-top: calc(50vh + 40px);
+        line-height: 25px;
+      }
+
+      #infoArea h3 {
+        margin: 20px;
+        color: rgb(0, 0, 0);
+        border-bottom: solid rgb(50, 50, 50);
+        padding-bottom: 10px;
+        width: 150px;
+      }
+
+      #infoArea p {
+        margin-left: 40px;
+        color: rgb(50, 50, 50);
+        text-align: left;
+        width: calc(100% - 70px);
+        max-width: 800px;
+      }
+    </style>
+
+    <script>
+      var backgroundColor = "rgb(0, 0, 0)";
+      var buttonBackgroundColor = "rgba(0, 0, 0, 0)";
+      var fontColor = "rgba(255, 255, 255, 1)";
+      var borderColor = "rgba(255, 255, 255, 1)";
+      var borderWidth = "4px";
+      var borderRadius = "10px";
+      var padding = ["10px", "15px", "10px", "15px"];
+      var shadowOffset = ["0px", "0px", "0px"];
+      var shadowColor = "rgb(0, 0, 0)";
+      var openTab = "1";
+
+      function backgroundColorChange() {
+        var redHue = (Math.round((document.getElementById('backgroundRedHue').value) * 2.55));
+        var greenHue = (Math.round((document.getElementById('backgroundGreenHue').value) * 2.55));
+        var blueHue = (Math.round((document.getElementById('backgroundBlueHue').value) * 2.55));
+        document.getElementById("buttonContainer").style.backgroundColor = "rgb(" + redHue + ", " + greenHue + ", " + blueHue + ")";
+        backgroundColor = "rgb(" + redHue + ", " + greenHue + ", " + blueHue + ")";
+        CSSAddition();
+      }
+
+      function buttonBackgroundColorChange() {
+        var redHue = (Math.round((document.getElementById('buttonBackgroundRedHue').value) * 2.55));
+        var greenHue = (Math.round((document.getElementById('buttonBackgroundGreenHue').value) * 2.55));
+        var blueHue = (Math.round((document.getElementById('buttonBackgroundBlueHue').value) * 2.55));
+        var alpha = ((document.getElementById('buttonBackgroundAlpha').value) / 100);
+        document.getElementById("buttonDemo").style.backgroundColor = "rgba(" + redHue + ", " + greenHue + ", " + blueHue + ", " + alpha + ")";
+        buttonBackgroundColor = "rgba(" + redHue + ", " + greenHue + ", " + blueHue + ", " + alpha + ")";
+        CSSAddition();
+      }
+
+      function fontColorChange() {
+        var redHue = (Math.round((document.getElementById('fontColorRedHue').value) * 2.55));
+        var greenHue = (Math.round((document.getElementById('fontColorGreenHue').value) * 2.55));
+        var blueHue = (Math.round((document.getElementById('fontColorBlueHue').value) * 2.55));
+        var alpha = ((document.getElementById('fontColorAlpha').value) / 100);
+        document.getElementById("buttonDemo").style.color = "rgba(" + redHue + ", " + greenHue + ", " + blueHue + ", " + alpha + ")";
+        fontColor = "rgba(" + redHue + ", " + greenHue + ", " + blueHue + ", " + alpha + ")";
+        CSSAddition();
+      }
+
+      function borderColorChange() {
+        var redHue = (Math.round((document.getElementById('borderColorRedHue').value) * 2.55));
+        var greenHue = (Math.round((document.getElementById('borderColorGreenHue').value) * 2.55));
+        var blueHue = (Math.round((document.getElementById('borderColorBlueHue').value) * 2.55));
+        var alpha = ((document.getElementById('borderColorAlpha').value) / 100);
+        document.getElementById("buttonDemo").style.borderColor = "rgba(" + redHue + ", " + greenHue + ", " + blueHue + ", " + alpha + ")";
+        borderColor = "rgba(" + redHue + ", " + greenHue + ", " + blueHue + ", " + alpha + ")";
+        CSSAddition();
+      }
+
+      function borderWidthChange() {
+        document.getElementById("buttonDemo").style.borderWidth = (Math.round((document.getElementById('borderWidth').value) / 3));
+        borderWidth = ((Math.round((document.getElementById('borderWidth').value) / 3)) + "px");
+        borderRadiusChange();
+      }
+
+      function fontSizeChange() {
+        document.getElementById("buttonDemo").style.fontSize = (document.getElementById('fontSize').value);
+        fontSize = ((document.getElementById('fontSize').value) + "px");
+        borderRadiusChange();
+      }
+
+      function borderRadiusChange() {
+        var buttonWidth = document.getElementById("buttonDemo").offsetWidth;
+        var buttonHeight = document.getElementById("buttonDemo").offsetHeight;
+        if (buttonWidth < buttonHeight) {
+          maxRadius = buttonWidth;
+        } else {
+          maxRadius = buttonHeight;
+        }
+        var radius = (document.getElementById('borderRadius').value);
+        document.getElementById("buttonDemo").style.borderRadius = ((radius / 100) * (maxRadius / 2) + "px");
+        borderRadius = ((radius / 100) * (maxRadius / 2) + "px");
+        CSSAddition();
+      }
+
+      function paddingChange() {
+        var top = (document.getElementById('paddingTop').value);
+        var bottom = (document.getElementById('paddingBottom').value);
+        var left = (document.getElementById('paddingLeft').value);
+        var right = (document.getElementById('paddingRight').value);
+        document.getElementById("buttonDemo").style.padding = (top + "px " + right + "px " + bottom + "px " + left + "px");
+        padding = [top + "px", right + "px", bottom + "px", left + "px"];
+        borderRadiusChange();
+      }
+
+      function shadowOffsetChange() {
+        var x = (document.getElementById('shadowXOffset').value);
+        var y = (document.getElementById('shadowYOffset').value);
+        var z = (document.getElementById('shadowZOffset').value);
+        document.getElementById("buttonDemo").style.boxShadow = (x + "px " + y + "px " + z + "px " + shadowColor);
+        shadowOffset = [x + "px ", y + "px ", z + "px"];
+        CSSAddition();
+      }
+
+      function shadowColorChange() {
+        var redHue = (Math.round((document.getElementById('shadowColorRedHue').value) * 2.55));
+        var greenHue = (Math.round((document.getElementById('shadowColorGreenHue').value) * 2.55));
+        var blueHue = (Math.round((document.getElementById('shadowColorBlueHue').value) * 2.55));
+        document.getElementById("buttonDemo").style.boxShadow = (shadowOffset[0]+ " " + shadowOffset[1] + " " + shadowOffset[2] + " " + "rgb(" + redHue + ", " + greenHue + ", " + blueHue + ")");
+        shadowColor = "rgb(" + redHue + ", " + greenHue + ", " + blueHue + ")";
+        CSSAddition();
+      }
+
+      function CSSAddition() {
+        document.getElementById("buttonRestCSS").innerHTML = (".button {<br>&nbsp;background-color: " + buttonBackgroundColor + ";<br>&nbsp;padding: " + padding[0] + " " + padding[1] + " " + padding[2] + " " + padding[3] + ";<br>&nbsp;border: " + borderWidth + " " + borderColor + " solid;<br>&nbsp;border-radius: " + borderRadius + ";<br>&nbsp;color: " + fontColor + ";<br>&nbsp;font-family: Nunito;<br>&nbsp;font-size: 20px;<br>&nbsp;transition: 0s;<br>&nbsp;box-shadow: " + shadowOffset[0] + " " + shadowOffset[1] + " " + shadowOffset[2] + " " + shadowColor + ";<br>}")
+      }
+
+      function openInfo() {
+        document.getElementById('infoTab').style.zIndex = "1";
+        document.getElementById('infoTab').style.backgroundColor = "rgb(230, 230, 230)";
+        document.getElementById('adjustmentTab').style.backgroundColor = "rgb(190, 190, 190)";
+        document.getElementById('adjustmentTab').style.zIndex = "-1";
+        document.getElementById('adjustmentArea').style.display = "none";
+        document.getElementById('infoArea').style.display = "block";
+        document.getElementById('cssCodeContainer').style.display = "none";
+      }
+
+      function openAdjustment() {
+        document.getElementById('adjustmentTab').style.zIndex = "1";
+        document.getElementById('adjustmentTab').style.backgroundColor = "rgb(230, 230, 230)";
+        document.getElementById('infoTab').style.backgroundColor = "rgb(190, 190, 190)";
+        document.getElementById('infoTab').style.zIndex = "-1";
+        document.getElementById('adjustmentArea').style.display = "block";
+        document.getElementById('infoArea').style.display = "none";
+        document.getElementById('cssCodeContainer').style.display = "block";
+      }
+
+      function infoSetMaxWidth () {
+        var x = (screen.width / 2);
+        document
+      }
+    </script>
+  </head>
+
+  <body onload="CSSAddition();">
+    <div class="buttonContainer" id="buttonContainer">
+      <button class="a" id="buttonDemo">Button</button>
+      <div class="tabContainer" id="tabContainer">
+        <div class="tab" id="adjustmentTab" style="left: 0px; z-index: 1;" onclick="openAdjustment()">Button</div>
+        <div class="tab" id="infoTab" style="right: 0px; z-index: -1; background-color: rgb(190, 190, 190);" onclick="openInfo()">Info</div>
+      </div>
+    </div>
+    <div class="adjustmentArea" id="adjustmentArea">
+      <div id=backgroundColorSliders>
+        Background Color :<br>
+        R <input type="range" value="0" id="backgroundRedHue" onchange="backgroundColorChange()"></input><br>
+        G <input type="range" value="0" id="backgroundGreenHue" onchange="backgroundColorChange()"></input><br>
+        B <input type="range" value="0" id="backgroundBlueHue" onchange="backgroundColorChange()"></input>
+      </div>
+      <div id=buttonBackgroundColorSliders style="margin: 20px 0px;">
+        Button Background :<br>
+        R <input type="range" value="0" id="buttonBackgroundRedHue" onchange="buttonBackgroundColorChange()"></input><br>
+        G <input type="range" value="0" id="buttonBackgroundGreenHue" onchange="buttonBackgroundColorChange()"></input><br>
+        B <input type="range" value="0" id="buttonBackgroundBlueHue" onchange="buttonBackgroundColorChange()"></input><br>
+        A <input type="range" value="0" id="buttonBackgroundAlpha" onchange="buttonBackgroundColorChange()"></input>
+      </div>
+      <div id=fontColorSliders style="margin: 20px 0px;">
+        Font Color :<br>
+        R <input type="range" value="100" id="fontColorRedHue" onchange="fontColorChange()"></input><br>
+        G <input type="range" value="100" id="fontColorGreenHue" onchange="fontColorChange()"></input><br>
+        B <input type="range" value="100" id="fontColorBlueHue" onchange="fontColorChange()"></input><br>
+        A <input type="range" value="100" id="fontColorAlpha" onchange="fontColorChange()"></input>
+      </div>
+      <div id=fontSizeSlider style="margin: 20px 0px;">
+        Font Size :<br>
+        <input type="range" value="20" id="fontSize" onchange="fontSizeChange()"></input>
+      </div>
+      <div id=borderColorSliders style="margin: 20px 0px;">
+        Border Color :<br>
+        R <input type="range" value="100" id="borderColorRedHue" onchange="borderColorChange()"></input><br>
+        G <input type="range" value="100" id="borderColorGreenHue" onchange="borderColorChange()"></input><br>
+        B <input type="range" value="100" id="borderColorBlueHue" onchange="borderColorChange()"></input><br>
+        A <input type="range" value="100" id="borderColorAlpha" onchange="borderColorChange()"></input>
+      </div>
+      <div id=borderWidthSlider style="margin: 20px 0px;">
+        Border Width :<br>
+        <input type="range" value="20" id="borderWidth" onchange="borderWidthChange()"></input>
+      </div>
+      <div id=borderRadiusSlider style="margin: 20px 0px;">
+        Border Radius :<br>
+        <input type="range" value="40" id="borderRadius" onchange="borderRadiusChange()"></input>
+      </div>
+      <div id=paddingSliders style="margin: 20px 0px;">
+        Padding :<br>
+        T <input type="range" value="10" id="paddingTop" onchange="paddingChange()"></input><br>
+        R <input type="range" value="15" id="paddingRight" onchange="paddingChange()"></input><br>
+        B <input type="range" value="10" id="paddingBottom" onchange="paddingChange()"></input><br>
+        L <input type="range" value="15" id="paddingLeft" onchange="paddingChange()"></input>
+      </div>
+      <div id=shadowOffsetSliders style="margin: 20px 0px;">
+        Shadow Offset :<br>
+        X <input type="range" value="0" id="shadowXOffset" onchange="shadowOffsetChange()"></input><br>
+        Y <input type="range" value="0" id="shadowYOffset" onchange="shadowOffsetChange()"></input><br>
+        Z <input type="range" value="0" id="shadowZOffset" onchange="shadowOffsetChange()"></input>
+      </div>
+      <div id=shadowColorSliders style="margin: 20px 0px;">
+        Shadow Color :<br>
+        R <input type="range" value="0" id="shadowColorRedHue" onchange="shadowColorChange()"></input><br>
+        G <input type="range" value="0" id="shadowColorGreenHue" onchange="shadowColorChange()"></input><br>
+        B <input type="range" value="0" id="shadowColorBlueHue" onchange="shadowColorChange()"></input>
+      </div>
+    </div>
+
+    <div class="infoArea" id="infoArea" style="display: none; text-align: left;">
+      <h3>Styles</h3>
+      <p>These are only a few styles that can be added to a button. It is important to remember that this buttom demo only contains a few traits and more can be added in the style section of your head tag. </p>
+    </div>
+    <div class="cssCodeContainer" id="cssCodeContainer">
+      <div id="buttonRestCSS" class="buttonRestCSS">
+    </div>
+  </body>
+</html>
