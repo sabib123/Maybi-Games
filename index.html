@@ -1,395 +1,120 @@
-<html lang="en">
- <head>
-   <link rel="shortcut icon" type="png" href="favicon.ico">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-   <style>
-     body {
-         margin: 0px;
-         cursor: default;
-         transition: 0.3s;
-         user-select: none;
-     }
-
-     .backgroundHue {
-       background-image: linear-gradient(135deg, rgb(140, 140, 255), rgb(255, 100, 230));
-       animation: re-color 10s infinite;
-       position: fixed;
-       top: 0px;
-       left: 0px;
-       margin: 0px;
-       width: 100%;
-       height: 100%;
-       z-index: -1;
-     }
-
-     .backgroundBrightness {
-       background-color: rgb(0, 0, 0);
-       position: fixed;
-       top: 0px;
-       left: 0px;
-       margin: 0px;
-       width: 100%;
-       height: 100%;
-       z-index: -1;
-       opacity: 0;
-     }
-
-     @keyframes re-color {
-        0% {filter: hue-rotate(0deg);}
-        25% {filter: hue-rotate(20deg);}
-        75% {filter: hue-rotate(-20deg);}
-        100% {filter: hue-rotate(0deg);}
-      }
-
-     a {
-       text-decoration: none;
-     }
-
-     .topbarNav {
-       background-image: linear-gradient(0deg, rgb(55, 55, 65), rgb(40, 40, 50));
-       height: 80px;
-       width: 100%;
-       position: fixed;
-       top: 0px;
-       font-family: Montserrat;
-       color: rgb(255, 255, 255);
-       display: inline-block;
-       z-index: 2;
-       transition: 0.3s;
-       animation: slideIn 1s;
-     }
-
-     .topbarNav h1 {
-       font-size: 30px;
-       top: 0px;
-       left: 50px;
-       padding: 0px;
-       cursor: default;
-       position: fixed;
-     }
-
-     center h1 {
-       margin-top: 120px;
-       color: white;
-       font-family: Montserrat;
-       width: 90%;
-       animation: slideIn 1s;
-       text-shadow: 1.5px 1.5px 2px black;
-       transition: 0.3s;
-       font-size: 30px;
-     }
-
-     .previewLinks {
-       color: rgb(255, 255, 255);
-       margin: 0px;
-       margin-bottom: 50px;
-       width: 90%;
-     }
-
-     .previewLinks a {
-       background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.8), rgba(210, 210, 210, 0.8));
-       display: inline-block;
-       width: 250px;
-       height: 80px;
-       margin: 10px;
-       font-size: 18px;
-       line-height: 80px;
-       color: rgb(50, 50, 50);
-       border-radius: 25px;
-       font-family: Lato;
-       border: hidden;
-       transition: 0.3s;
-       box-shadow: 0px 0px 10px black;
-       overflow: hidden;
-     }
-
-     .previewLinks a:hover {
-       border-radius:0px;
-     }
-
-     @keyframes fadeIn {
-       from {opacity: 0;}
-       to {opacity: 1;}
-     }
-
-     @keyframes slideIn {
-       0% {
-         transform: translateY(-100%);
-       }
-     }
-
-     #sideEffects {
-       font-family: Lato;
-       position: fixed;
-       left: 50%;
-       bottom: 0px;
-       transform: translateX(-50%);
-       width: 50px;
-       height: 50px;
-       background-color: rgb(215, 215, 215);
-       border-radius: 15px 15px 0px 0px;
-       cursor: pointer;
-       transition: 0.3s;
-       box-shadow: 0px 0px 10px black;
-       z-index: 3;
-       overflow: hidden;
-       padding: 0px;
-     }
-
-     #sideEffects:hover {
-       border-radius: 0px;
-     }
-
-     #sideEffects h2 {
-       margin: 0px;
-       padding: 0px;
-       text-align: center;
-       line-height: 50px;
-     }
-
-     #effects {
-       padding: 0px;
-       display: none;
-       margin-top: 20px;
-       position: absolute;
-       top: 50%;
-       opacity: 0;
-       overflow: none;
-       transform: translateY(-50%);
-       transition: 0.3s;
-     }
-
-     #effects h3 {
-       height: 80px;
-       width: 120px;
-       text-align: center;
-       transition: 0.3s;
-       border-radius: 10px;
-       padding-left: 10px;
-       font-size: 20px;
-       margin: 5px;
-     }
-
-     .switch {
-       position: relative;
-       display: inline-block;
-       width: 60px;
-       height: 34px;
-       margin-top: 10px;
-     }
-
-     .switch input {
-       opacity: 0;
-       width: 0;
-       height: 0;
-     }
-
-     .slider {
-       position: absolute;
-       cursor: pointer;
-       top: 0;
-       left: 0;
-       right: 0;
-       bottom: 0;
-       background-color: rgb(55, 55, 65);
-       transition: .3s;
-     }
-
-     .slider:before {
-       position: absolute;
-       content: "";
-       height: 26px;
-       width: 26px;
-       left: 4px;
-       bottom: 4px;
-       background-color: white;
-       transition: .3s;
-     }
-
-      input:checked + .slider {
-        background-color: rgb(255, 140, 140);
-      }
-
-      input:checked + .slider:before {
-        transform: translateX(26px);
-      }
-
-      .slider.round {
-        border-radius: 34px;
-      }
-
-      .slider.round:before {
-        border-radius: 50%;
-      }
-
-      .SFXSlider {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 25px;
-        border-radius: 100px;
-        background: rgb(55, 55, 65);
-        outline: none;
-      }
-
-      .SFXSlider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 25px;
-        height: 25px;
-        border-radius: 15px;
-        background: rgb(255, 255, 255);
-        cursor: grab;
-      }
-   </style>
-
-   <script>
-    var SFXstatus = 0;
-    var delayInMilliseconds = 300;
-    var brightness = 1;
-    var mouse = false;
-
-    function openSFX() {
-      if (SFXstatus == 0){
-        document.getElementById("sideEffects").style.width = "150px";
-        document.getElementById("sideEffects").style.cursor = "default";
-        document.getElementById("SFXicon").style.display = "none";
-        document.getElementById("effects").style.lineHeight = "0px";
-        SFXstatus = 1;
-        setTimeout(function(){
-          document.getElementById("sideEffects").style.height = "300px";
-          document.getElementById("sideEffects").style.borderRadius = "10px 10px 0px 0px";
-          document.getElementById("effects").style.display = "inline-block";
-          document.getElementById("effects").style.opacity = "1";
-        }, 300);
-      }
-    }
-
-    function closeSFX(event) {
-      windowWidth = window.innerWidth;
-      windowHeight = window.innerHeight;
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-      if (((mouseY < (windowHeight - 300)) || (mouseX > ((windowWidth / 2) + 75)) || (((windowWidth / 2) - 75) > mouseX)) && (SFXstatus == 1)) {
-        document.getElementById("sideEffects").style.height = "50px";
-        document.getElementById("sideEffects").style.borderRadius = "10px 10px 0px 0px";
-        document.getElementById("effects").style.opacity = "0";
-        SFXstatus = 0;
-        setTimeout(function() {
-          document.getElementById("sideEffects").style.width = "50px";
-          document.getElementById("sideEffects").style.cursor = "pointer";
-          document.getElementById("SFXicon").style.display = "block";
-          document.getElementById("effects").style.lineHeight = "default";
-          document.getElementById("effects").style.display = "none";
-        }, 300);
-      }
-    }
-
-    function changeBrightness() {
-        var brightness = ((document.getElementById('brightnessSlider').value / 300) + 0.66);
-        document.getElementById("backgroundBrightness").style.opacity = 1 - brightness;
-        document.getElementById("content").style.filter = "brightness(" + brightness + ")";
-        document.getElementById("topbarNav").style.filter = "brightness(" + brightness + ")";
-        document.getElementById("sideEffects").style.filter = "brightness(" + brightness + ")";
-    };
-
-    function resizeIcons() {
-        var size = ((document.getElementById('iconSlider').value / 200) + 0.5);
-        var links = document.getElementById('homeGames').getElementsByTagName('a');
-        for(var i=0; i<links.length; i++) {
-          links[i].style.fontSize = (18 * size) + "px";
-          links[i].style.width = (250 * size) + "px";
-          links[i].style.height = (80 * size) + "px";
-          links[i].style.borderRadius = (25 * size) + "px";
-          links[i].style.lineHeight = (80 * size) + "px";
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+    <style>
+        body {
+          margin: 0px;
+          cursor: default;
+          user-select: none;
+          background-color: #d0e1f9;
         }
-    };
 
-    function logos() {
-      if (document.getElementById("logoSwitch").checked == true) {
-        document.getElementById("topbarNav").style.height = "80";
-        document.getElementById("siteTitle").style.opacity = "1";
-        document.getElementById("maybiSlogan").style.fontSize = "30px";
-        document.getElementById("maybiSlogan").style.marginTop = "120px";
+        .header {
+          width: 100vw;
+          height: 80px;
+          background-color: #1e1f26;
+        }
 
-      } else {
-        document.getElementById("topbarNav").style.height = "0";
-        document.getElementById("siteTitle").style.opacity = "0";
-        document.getElementById("maybiSlogan").style.fontSize = "0";
-        document.getElementById("maybiSlogan").style.marginTop = "40px";
-      }
-    }
-   </script>
- </head>
+        .siteTitle {
+          font-size: 40px;
+          font-family: Quicksand;
+          color: white;
+          line-height: 80px;
+          margin: 0px 0px 0px 35px;
+        }
 
- <body id="siteBody" onclick="closeSFX(event)">
-   <div style="position: fixed; top: -15px; right: 25px; z-index: -10; color: rgb(235, 235, 235);">Sabi Was Here</div>
-   <div class="backgroundHue" id="backgroundHue"></div>
-   <div class="backgroundBrightness" id="backgroundBrightness"></div>
-   <div class="topbarNav" id="topbarNav">
-     <h1 id="siteTitle">Maybi Games</h1>
-   </div>
-   <center id="content">
-     <h1 id="maybiSlogan">Maybi you want to play some games?</h1>
-     <div class="previewLinks" id="homeGames">
-       <a href="Maybi_2048.html" style="animation: fadeIn 1s;">2048</a>
-       <a href="Maybi_AgeOfDefense3.html" style="animation: fadeIn 1.1s;">Age of Defense 3</a>
-       <a href="Maybi_AgeOfWar.html" style="animation: fadeIn 1.2s;">Age of War</a>
-       <a href="Maybi_AgeOfWar2.html" style="animation: fadeIn 1.3s;">Age of War 2</a>
-       <a href="Maybi_BTD3.html" style="animation: fadeIn 1.4s;">Bloons TD 3</a>
-       <a href="Maybi_BTD4.html" style="animation: fadeIn 1.5s;">Bloons TD 4</a>
-       <a href="Maybi_BTD5.html" style="animation: fadeIn 1.6s;">Bloons TD 5</a>
-       <a href="Maybi_ClickerHeroes.html" style="animation: fadeIn 1.7s;">Clicker Heroes</a>
-       <a href="Maybi_DuckHunt.html" style="animation: fadeIn 1.8s;">Duck Hunt</a>
-       <a href="Maybi_DuckLife.html" style="animation: fadeIn 1.9s;">Duck Life</a>
-       <a href="Maybi_DuckLife2.html" style="animation: fadeIn 2s;">Duck Life 2</a>
-       <a href="Maybi_DuckLife3.html" style="animation: fadeIn 2.1s;">Duck Life 3</a>
-       <a href="Maybi_DuckLife4.html" style="animation: fadeIn 2.2s;">Duck Life 4</a>
-       <a href="Maybi_DummiesNeverFail.html" style="animation: fadeIn 2.3s;">Dummies Never Fail</a>
-       <a href="Maybi_EarnToDie.html" style="animation: fadeIn 2.4s;">Earn To Die</a>
-       <a href="Maybi_EarnToDie2.html" style="animation: fadeIn 2.5s;">Earn To Die 2</a>
-       <a href="Maybi_EarnToDie2012.html" style="animation: fadeIn 2.6s;">Earn To Die 2012</a>
-       <a href="Maybi_EarnToDie2012Part2.html" style="animation: fadeIn 2.7s;">Earn To Die 2012 Part 2</a>
-       <a href="Maybi_ElectricMan.html" style="animation: fadeIn 2.8s;">Electric Man</a>
-       <a href="Maybi_FancyPants.html" style="animation: fadeIn 2.9s;">Fancy Pants</a>
-       <a href="Maybi_FancyPants2.html" style="animation: fadeIn 3s;">Fancy Pants 2</a>
-       <a href="Maybi_CrystalTemple.html" style="animation: fadeIn 3.1s;">FB & WG Crystal Temple</a>
-       <a href="Maybi_ForestTemple.html" style="animation: fadeIn 3.2s;">FB & WG Forest Temple</a>
-       <a href="Maybi_IceTemple.html" style="animation: fadeIn 3.3s;">FB & WG Ice Temple</a>
-       <a href="Maybi_LightTemple.html" style="animation: fadeIn 3.4s;">FB & WG Light Temple</a>
-       <a href="Maybi_Flight.html" style="animation: fadeIn 3.5s;">Flight</a>
-       <a href="Maybi_Jacksmith.html" style="animation: fadeIn 3.6s;">Jacksmith</a>
-       <a href="Maybi_KingdomRush.html" style="animation: fadeIn 3.7s;">Kingdom Rush</a>
-       <a href="Maybi_Pacman.html" style="animation: fadeIn 3.8s;">Pacman</a>
-       <a href="Maybi_Burgeria.html" style="animation: fadeIn 3.9s;">Papa's Burgeria</a>
-       <a href="Maybi_Cupcakeria.html" style="animation: fadeIn 4s;">Papa's Cupcakeria</a>
-       <a href="Maybi_Freezeria.html" style="animation: fadeIn 4.1s;">Papa's Freezeria</a>
-       <a href="Maybi_HotDoggeria.html" style="animation: fadeIn 4.2s;">Papa's Doggeria</a>
-       <a href="Maybi_Pancakeria.html" style="animation: fadeIn 4.3s;">Papa's Pancakeria</a>
-       <a href="Maybi_Pizzaria.html" style="animation: fadeIn 4.4s;">Papa's Pizzaria</a>
-       <a href="Maybi_Wingeria.html" style="animation: fadeIn 4.5s;">Papa's Wingeria</a>
-       <a href="Maybi_Raze.html" style="animation: fadeIn 4.6s;">Raze</a>
-       <a href="Maybi_RedBall4.html" style="animation: fadeIn 4.7s;">Red Ball 4</a>
-       <a href="Maybi_RedBall4Vol2.html" style="animation: fadeIn 4.8s;">Red Ball 4 Vol 2</a>
-       <a href="Maybi_RedBall4Vol3.html" style="animation: fadeIn 4.9s;">Red Ball 4 Vol 3</a>
-       <a href="Maybi_RedBall5.html" style="animation: fadeIn 5s;">Red Ball 5</a>
-       <a href="Maybi_ReturnMan2.html" style="animation: fadeIn 5.1s;">Return Man 2</a>
-       <a href="Maybi_Run.html" style="animation: fadeIn 5.2s;">Run</a>
-       <a href="Maybi_Run2.html" style="animation: fadeIn 5.3s;">Run 2</a>
-       <a href="Maybi_StickWar.html" style="animation: fadeIn 5.4s;">Stick War</a>
-       <a href="Maybi_StickWar2.html" style="animation: fadeIn 5.5s;">Stick War 2</a>
-       <a href="Maybi_SushiCat.html" style="animation: fadeIn 5.6s;">Sushi Cat</a>
-       <a href="Maybi_TankTrouble.html" style="animation: fadeIn 5.7s;">Tank Trouble</a>
-       <a href="Maybi_Tetris.html" style="animation: fadeIn 5.8s;">Tetris</a>
-     </div>
-   </center>
-   <div id="sideEffects" onclick="openSFX();">
-     <h2 id="SFXicon">&#9776;</h2>
-      <div id="effects">
-        <h3>Brightness<input type="range" onchange="changeBrightness()" style="margin-top: 20px" class="SFXSlider" value="100" id="brightnessSlider"></input></h3>
-        <h3>Icon Size<input type="range" onchange="resizeIcons()" style="margin-top: 20px" class="SFXSlider" value="100" id="iconSlider"></input></h3>
-        <h3 style="line-height: 20px;">Logos<br><label class="switch"><input type="checkbox" checked="checked" onchange="logos()" id="logoSwitch"><span class="slider round"></span></label></h3>
-      </div>
+        @media (max-width: 750px) {
+          .gameLinks a {
+            background-color: #4d648d;
+            height: 80px;
+            width: 90vw;
+            margin: 20px 0px 0px 5vw;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 80px;
+            color: white;
+            font-size: 25px;
+            font-family: Quicksand;
+            text-decoration: none;
+            display: inline-block;
+          }
+        }
+
+        @media (min-width: 750px) {
+          .gameLinks a {
+            background-color: #4d648d;
+            height: 80px;
+            width: 40vw;
+            margin: 3vh 0px 0px 5vw;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 80px;
+            color: white;
+            font-size: 25px;
+            font-family: Quicksand;
+            text-decoration: none;
+            display: inline-block;
+          }
+        }
+
+        .gameLinks a:hover {
+          background-color: #6881ad;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="header" id="header">
+      <h3 class="siteTitle" id="siteTitle">Maybi Games</h3>
     </div>
+    <div class="gameLinks">
+      <a href="Maybi_2048.html">2048</a>
+      <a href="Maybi_AgeOfDefense3.html">Age of Defense 3</a>
+      <a href="Maybi_AgeOfWar.html">Age of War</a>
+      <a href="Maybi_AgeOfWar2.html">Age of War 2</a>
+      <a href="Maybi_BTD3.html">Bloons TD 3</a>
+      <a href="Maybi_BTD4.html">Bloons TD 4</a>
+      <a href="Maybi_BTD5.html">Bloons TD 5</a>
+      <a href="Maybi_ClickerHeroes.html">Clicker Heroes</a>
+      <a href="Maybi_DuckHunt.html">Duck Hunt</a>
+      <a href="Maybi_DuckLife.html">Duck Life</a>
+      <a href="Maybi_DuckLife2.html">Duck Life 2</a>
+      <a href="Maybi_DuckLife3.html">Duck Life 3</a>
+      <a href="Maybi_DuckLife4.html">Duck Life 4</a>
+      <a href="Maybi_DummiesNeverFail.html">Dummies Never Fail</a>
+      <a href="Maybi_EarnToDie.html">Earn To Die</a>
+      <a href="Maybi_EarnToDie2.html">Earn To Die 2</a>
+      <a href="Maybi_EarnToDie2012.html">Earn To Die 2012</a>
+      <a href="Maybi_EarnToDie2012Part2.html">Earn To Die 2012 Part 2</a>
+      <a href="Maybi_ElectricMan.html">Electric Man</a>
+      <a href="Maybi_FancyPants.html">Fancy Pants</a>
+      <a href="Maybi_FancyPants2.html">Fancy Pants 2</a>
+      <a href="Maybi_CrystalTemple.html">FB & WG Crystal Temple</a>
+      <a href="Maybi_ForestTemple.html">FB & WG Forest Temple</a>
+      <a href="Maybi_IceTemple.html">FB & WG Ice Temple</a>
+      <a href="Maybi_LightTemple.html">FB & WG Light Temple</a>
+      <a href="Maybi_Flight.html">Flight</a>
+      <a href="Maybi_Jacksmith.html">Jacksmith</a>
+      <a href="Maybi_KingdomRush.html">Kingdom Rush</a>
+      <a href="Maybi_Pacman.html">Pacman</a>
+      <a href="Maybi_Burgeria.html">Papa's Burgeria</a>
+      <a href="Maybi_Cupcakeria.html">Papa's Cupcakeria</a>
+      <a href="Maybi_Freezeria.html">Papa's Freezeria</a>
+      <a href="Maybi_HotDoggeria.html">Papa's Doggeria</a>
+      <a href="Maybi_Pancakeria.html">Papa's Pancakeria</a>
+      <a href="Maybi_Pizzaria.html">Papa's Pizzaria</a>
+      <a href="Maybi_Wingeria.html">Papa's Wingeria</a>
+      <a href="Maybi_Raze.html">Raze</a>
+      <a href="Maybi_RedBall4.html">Red Ball 4</a>
+      <a href="Maybi_RedBall4Vol2.html">Red Ball 4 Vol 2</a>
+      <a href="Maybi_RedBall4Vol3.html">Red Ball 4 Vol 3</a>
+      <a href="Maybi_RedBall5.html">Red Ball 5</a>
+      <a href="Maybi_ReturnMan2.html">Return Man 2</a>
+      <a href="Maybi_Run.html">Run</a>
+      <a href="Maybi_Run2.html">Run 2</a>
+      <a href="Maybi_StickWar.html">Stick War</a>
+      <a href="Maybi_StickWar2.html">Stick War 2</a>
+      <a href="Maybi_SushiCat.html">Sushi Cat</a>
+      <a href="Maybi_TankTrouble.html">Tank Trouble</a>
+      <a href="Maybi_Tetris.html">Tetris</a><div>
   </body>
 </html>
