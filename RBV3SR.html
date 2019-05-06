@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
+    <style>
+      body {
+        background-image: linear-gradient(-25deg, rgb(190, 190, 190), rgb(240, 240, 240));
+        margin: 0px;
+        user-select: none;
+        cursor: default;
+        text-align: center;
+      }
+      embed {
+        width: 640px;
+        height: 480px;
+        border: solid black 3px;
+        margin-top: 10px;
+      }
+      #doc {
+        font-family: Quicksand;
+        font-size: 20px;
+        text-align: center;
+      }
+      .btn {
+        border: hidden;
+        background-color: rgb(120, 140, 255);
+        width: 50vw;
+        font-size: 25px;
+        height: 100px;
+        margin: 10px 0px;
+        outline: none;
+        font-family: Quicksand;
+        border-radius: 5px;
+        max-width: 320px;
+      }
+      .btn:hover {
+        background-color: rgb(70, 110, 245);
+      }
+    </style>
+    <script>
+      var mil = 0;
+      var sec = 0;
+      var min = 0;
+      var hou = 0;
+      var sta = 0;
+      function time() {
+        setInterval(function() {
+          if(sta == 1) {
+            mil = mil + 1;
+            if (mil == 100) {
+              mil = 0;
+              sec = sec + 1;
+              if (sec == 60) {
+                sec = 0;
+                min = min + 1;
+                if (min == 60) {
+                  min = 0;
+                  hou = hou + 1;
+                }
+              }
+            }
+            document.getElementById("doc").innerHTML = hou + ": " + min + ": " + sec + "; " + mil;
+          }
+        }, 10);
+      }
+      function stop() {
+        sta = 0;
+      }
+      function start() {
+        sta = 1;
+        mil = 0;
+        sec = 0;
+        min = 0;
+        hou = 0;
+      }
+    </script>
+  </head>
+  <body onload="time()">
+    <embed src="Maybi_RedBall4Vol3.swf"></embed>
+    <br>
+    <button onclick="start()" class="btn">Start</button><button onclick="stop()" class="btn" style="margin-left: 4px;">Stop</button>
+    <div id="doc">0: 0: 0; 0</div>
+  </body>
+</html>
