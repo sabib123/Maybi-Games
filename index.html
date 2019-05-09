@@ -1,66 +1,74 @@
 <html>
   <head>
+    <title>Maybi Games</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
     <style>
         body {
           margin: 0px;
           cursor: default;
           user-select: none;
-          background-color: #d0e1f9;
+          background-color: #ffd5c1;
         }
 
         .header {
           width: 100vw;
-          height: 80px;
+          height: 170px;
           background-color: #1e1f26;
+          position: fixed;
+          line-height: 170px;
+          top: 0px;
+          left: 0px;
+          white-space: nowrap;
+          z-index: 1;
         }
 
         .siteTitle {
-          font-size: 40px;
+          font-size: 60px;
           font-family: Quicksand;
           color: white;
-          line-height: 80px;
-          margin: 0px 0px 0px 35px;
+          padding: 0px 0px 0px 10%;
+          margin: 0px;
         }
 
-        @media (max-width: 750px) {
-          .gameLinks a {
-            background-color: #4d648d;
-            height: 80px;
-            width: 90vw;
-            margin: 20px 0px 0px 5vw;
-            border-radius: 10px;
-            text-align: center;
-            line-height: 80px;
-            color: white;
-            font-size: 25px;
-            font-family: Quicksand;
-            text-decoration: none;
-            display: inline-block;
-          }
+        .gameLinks {
+          margin-bottom: 25px;
+          padding-top: 180px;
         }
 
-        @media (min-width: 750px) {
-          .gameLinks a {
-            background-color: #4d648d;
-            height: 80px;
-            width: 40vw;
-            margin: 3vh 0px 0px 5vw;
-            border-radius: 10px;
-            text-align: center;
-            line-height: 80px;
-            color: white;
-            font-size: 25px;
-            font-family: Quicksand;
-            text-decoration: none;
-            display: inline-block;
-          }
+        .gameLinks a {
+          background-color: #e8692e;
+          overflow: hidden;
+          height: 60px;
+          filter: brightness(94%);
+          width: 45vw;
+          margin: 1vh 0px 0px 3vw;
+          border-radius: 10px;
+          text-align: center;
+          line-height: 60px;
+          color: white;
+          font-size: 20px;
+          font-family: Quicksand;
+          text-decoration: none;
+          display: inline-block;
+          white-space: nowrap;
         }
 
         .gameLinks a:hover {
-          background-color: #6881ad;
+          filter: brightness(90%);
         }
     </style>
+    <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop < 100) {
+        document.getElementById("header").style.height = 170 - document.body.scrollTop;
+        document.getElementById("header").style.lineHeight = (170 - document.body.scrollTop) + "px";
+        document.getElementById("siteTitle").style.fontSize = (60 - (document.body.scrollTop / 4)) + "px";
+        document.getElementById("siteTitle").style.paddingLeft = (10 - document.body.scrollTop / 20) + "%";
+      }
+    }
+    </script>
   </head>
   <body>
     <div class="header" id="header">
@@ -107,7 +115,6 @@
       <a href="Maybi_RedBall4.html">Red Ball 4</a>
       <a href="Maybi_RedBall4Vol2.html">Red Ball 4 Vol 2</a>
       <a href="Maybi_RedBall4Vol3.html">Red Ball 4 Vol 3</a>
-      <a href="RBV3SR.html">RB4V3SR</a>
       <a href="Maybi_RedBall5.html">Red Ball 5</a>
       <a href="Maybi_ReturnMan2.html">Return Man 2</a>
       <a href="Maybi_Run.html">Run</a>
@@ -116,6 +123,6 @@
       <a href="Maybi_StickWar2.html">Stick War 2</a>
       <a href="Maybi_SushiCat.html">Sushi Cat</a>
       <a href="Maybi_TankTrouble.html">Tank Trouble</a>
-      <a href="Maybi_Tetris.html">Tetris</a><div>
+      <a href="Maybi_Tetris.html">Tetris</a></div>
   </body>
 </html>
