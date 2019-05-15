@@ -70,6 +70,11 @@
         document.getElementById("header").style.lineHeight = (170 - document.body.scrollTop) + "px";
         document.getElementById("siteTitle").style.fontSize = (60 - (document.body.scrollTop / 4)) + "px";
         document.getElementById("siteTitle").style.paddingLeft = (10 - document.body.scrollTop / 20) + "%";
+      } else {
+        document.getElementById("header").style.height = "70px";
+        document.getElementById("header").style.lineHeight = "70px";
+        document.getElementById("siteTitle").style.fontSize = "35px";
+        document.getElementById("siteTitle").style.paddingLeft = "5%";
       }
     }
     function colorLinks() {
