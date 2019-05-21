@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <title>Bomb A Bomb</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="Maybi_GameStyles.css">
+    <script src="Maybi_GameScripts.js"></script>
+  </head>
+  <body onload="fillSidebar()">
+    <div class="topbarNav" id="topbarNav">
+      <h1 id="siteTitle" onclick="titleRedirect()">Maybi Games</h1>
+    </div>
+    <div class="sidebarNav" id="sidebarNav">
+      <h3 id="sidebarNavTitle">Play Games</h3>
+    </div>
+    <div class="gameContainer">
+      <center>
+        <h3 style="font-family: Montserrat">Bomb A Bomb</h3>
+        <embed src="Maybi_BombABomb.swf" id="game" style="height: 480; width: 640;"><br>
+        <button onclick="shrinkGame()" style="background-color: rgb(255, 160, 160)">&#8594;&#8592;</button>
+        <button onclick="growGame()" style="background-color: rgb(160, 255, 160)">&#8592;&#8594;</button>
+      </center>
+    </div>
+  </body>
+</html>
