@@ -20,6 +20,7 @@ function shrinkGame() {
 
 var linkList = [
 "Maybi_2048.html",
+"Maybi_Achilles.html",
 "Maybi_AgeOfDefense3.html",
 "Maybi_AgeOfWar.html",
 "Maybi_AgeOfWar2.html",
@@ -54,6 +55,7 @@ var linkList = [
 "Maybi_ElectricMan.html",
 "Maybi_FancyPants.html",
 "Maybi_FancyPants2.html",
+"Maybi_Grid16.html",
 "Maybi_CrystalTemple.html",
 "Maybi_ForestTemple.html",
 "Maybi_IceTemple.html",
@@ -61,6 +63,7 @@ var linkList = [
 "Maybi_Flight.html",
 "Maybi_Jacksmith.html",
 "Maybi_KingdomRush.html",
+"Maybi_LineGameOrange.html",
 "Maybi_Pacman.html",
 "Maybi_Pacxon.html",
 "Maybi_Burgeria.html",
@@ -86,11 +89,18 @@ var linkList = [
 "Maybi_SuperMonkey.html",
 "Maybi_SushiCat.html",
 "Maybi_TankTrouble.html",
-"Maybi_Tetris.html"
+"Maybi_Tetris.html",
+"Maybi_Vex.html",
+"Maybi_Vex2.html",
+"Maybi_WorldsHardestGame.html",
+"Maybi_WorldsHardestGame2.html",
+"Maybi_Zombocalypse.html",
+"Maybi_Zombocalypse2.html"
 ];
 
 var namesList = [
 "2048",
+"Achilles",
 "Age of Defense 3",
 "Age of War",
 "Age of War 2",
@@ -130,8 +140,10 @@ var namesList = [
 "FB & WG Ice Temple",
 "FB & WG Light Temple",
 "Flight",
+"Grid 16",
 "Jacksmith",
 "Kingdom Rush",
+"Line Game Orange",
 "Pacman",
 "Pacxon",
 "Papa's Burgeria",
@@ -157,7 +169,13 @@ var namesList = [
 "Super Monkey",
 "Sushi Cat",
 "Tank Trouble",
-"Tetris"
+"Tetris",
+"Vex",
+"Vex 2",
+"World's Hardest Game",
+"World's Hardest Game 2",
+"Zombocalypse",
+"Zombocalypse 2"
 ];
 
 function fillSidebar() {
