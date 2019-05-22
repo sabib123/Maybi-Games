@@ -15,7 +15,8 @@
         width: 100vw;
         height: 100vw;
         z-index: -1;
-        background-color: #ffd5c1;
+        background-image: linear-gradient(-45deg, rgb(140, 50, 255), rgb(255, 70, 240));
+        margin-top: 70px;
       }
       .header {
         width: 100vw;
@@ -40,12 +41,13 @@
         padding-top: 180px;
       }
       .gameLinks a {
-        background-color: #e8692e;
+        background-color: rgba(255, 255, 255, 0);
         overflow: hidden;
         height: 60px;
         filter: brightness(94%);
         width: 45vw;
         margin: 1vh 1px 0px 3vw;
+        border: solid white 2px;
         border-radius: 10px;
         text-align: center;
         line-height: 60px;
@@ -80,26 +82,6 @@
         document.getElementById("siteTitle").style.fontSize = "35px";
         document.getElementById("siteTitle").style.paddingLeft = "5%";
       }
-    }
-    function colorLinks() {
-      var links = document.getElementsByTagName("a");
-      var d = new Date();
-      var n = d.getDay();
-      if (n == 1) {
-        n = 90;
-      } else if (n == 2) {
-        n = 120;
-      } else if (n == 3) {
-        n = 180;
-      } else if (n == 4) {
-        n = 230;
-      } else if (n == 5) {
-        n = 280;
-      } else if (n == 6) {
-        n = 320;
-      }
-      document.getElementById("gameLinks").style.filter = "hue-rotate(" + n + "deg)";
-      document.getElementById("background").style.filter = "hue-rotate(" + n + "deg)";
     }
     </script>
   </head>
