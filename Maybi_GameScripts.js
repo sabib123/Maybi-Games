@@ -93,9 +93,7 @@ var linkList = [
 "Maybi_Vex.html",
 "Maybi_Vex2.html",
 "Maybi_WorldsHardestGame.html",
-"Maybi_WorldsHardestGame2.html",
-"Maybi_Zombocalypse.html",
-"Maybi_Zombocalypse2.html"
+"Maybi_WorldsHardestGame2.html"
 ];
 
 var namesList = [
@@ -173,9 +171,7 @@ var namesList = [
 "Vex",
 "Vex 2",
 "World's Hardest Game",
-"World's Hardest Game 2",
-"Zombocalypse",
-"Zombocalypse 2"
+"World's Hardest Game 2"
 ];
 
 function fillSidebar() {
