@@ -14,7 +14,7 @@
         top: 0px;
         left: 0px;
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 70px);
         z-index: -1;
         background-image: linear-gradient(-45deg, rgb(140, 50, 255), rgb(255, 70, 240));
         margin-top: 70px;
@@ -94,6 +94,9 @@
     function hideDiscaimer() {
       document.getElementById("notice").style.transform = "translateY(100%)";
       document.getElementById("notice").style.left = "0px";
+      setTimeout(function(){
+        document.getElementById("notice").style.display = "none";
+      }, 300);
     }
     </script>
   </head>
