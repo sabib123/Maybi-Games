@@ -21,7 +21,9 @@ function shrinkGame() {
 var linkList = [
 "Maybi_2048.html",
 "Maybi_Achilles.html",
+"Maybi_AgeOfDefense.html",
 "Maybi_AgeOfDefense3.html",
+"Maybi_AgeOfDefense4.html",
 "Maybi_AgeOfWar.html",
 "Maybi_AgeOfWar2.html",
 "Maybi_BattlePanic.html",
@@ -100,7 +102,9 @@ var linkList = [
 var namesList = [
 "2048",
 "Achilles",
+"Age of Defense",
 "Age of Defense 3",
+"Age of Defense 4",
 "Age of War",
 "Age of War 2",
 "Battle Panic",
