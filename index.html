@@ -8,17 +8,7 @@
         margin: 0px;
         cursor: default;
         user-select: none;
-      }
-      .background {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100vw;
-        height: calc(100vh - 70px);
-        z-index: -1;
-        background-image: linear-gradient(-45deg, rgb(140, 50, 255), rgb(255, 70, 240));
-        margin-top: 70px;
-        animation: changeColor infinite 20s;
+        background-color: #1e1f26;
       }
       @keyframes changeColor {
         0%{filter: hue-rotate(20deg);}
@@ -28,18 +18,20 @@
       .header {
         width: 100vw;
         height: 170px;
-        background-color: #1e1f26;
         position: fixed;
         line-height: 170px;
+        background-image: linear-gradient(-45deg, rgb(100, 55, 158), rgb(158, 65, 150));
         top: 0px;
         left: 0px;
         white-space: nowrap;
         z-index: 1;
+        animation: changeColor infinite 20s;
+        box-shadow: 0px 0px 10px black;
       }
       .siteTitle {
         font-size: 60px;
         font-family: Open Sans;
-        color: white;
+        color: rgb(200, 200, 200);
         padding: 0px 0px 0px 10%;
         margin: 0px;
       }
@@ -48,17 +40,16 @@
         padding-top: 180px;
       }
       .gameLinks a {
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0.05);
         overflow: hidden;
         height: 60px;
         filter: brightness(94%);
         width: 45vw;
         margin: 1vh 1px 0px 3vw;
-        border: solid white 2px;
-        border-radius: 10px;
+        border-radius: 8px;
         text-align: center;
         line-height: 60px;
-        color: white;
+        color: rgb(200, 200, 200);
         font-size: 20px;
         font-family: Open Sans;
         text-decoration: none;
@@ -67,10 +58,10 @@
         transition: 0.3s;
       }
       .gameLinks a:hover {
-        width: 49vw;
-        margin-left: 1vw;
-        margin-right: -2vw;
-        background-color: rgba(0, 0, 0, 0.4);
+        width: 49.5vw;
+        margin-left: .75vw;
+        margin-right: -2.15vw;
+        background-color: rgba(255, 255, 255, 0.05);
       }
       h1 {
         display: none;
