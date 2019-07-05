@@ -1,0 +1,212 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Source+Sans+Pro|Ubuntu&display=swap" rel="stylesheet">
+    <style>
+      body{
+        margin: 0px;
+        background-color: rgb(220, 220, 220);
+        -webkit-scroll: none;
+        font-family: Quicksand;
+      }
+      ::-webkit-scrollbar{
+        display: none;
+      }
+      .bodyContainer{
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+      }
+      .pageHeader{
+        height: 100px;
+        width: 100vw;
+        background-image: linear-gradient(0deg, rgb(40, 40, 40), rgb(55, 55, 55));
+        box-shadow: 0px 0px 10px black;
+        line-height: 100px;
+        position: fixed;
+      }
+      .pageHeader h1{
+        margin: 0px 45px;
+        padding: 0px;
+        color: rgb(240, 240, 240);
+      }
+      @media only screen and (max-width: 825px){
+        .pageHeader{text-align: center}
+      }
+      @media only screen and (min-width: 825px){
+        .pageHeader{text-align: left;}
+      }
+      .articleBox{
+        height: 200px;
+        cursor: pointer;
+        border: solid 0px #777;
+        border-radius: 8px;
+        box-shadow: 0px 0px 7px rgba(50, 50, 50, 0.5);
+        text-align: center;
+        overflow-x: hidden;
+        display: inline-block;
+      }
+      @media only screen and (max-width: 825px){
+        .articleBox{
+          background-image: linear-gradient(25deg, rgb(215, 215, 215), rgb(245, 245, 245));
+          width: 90vw;
+          margin: 25px 0vw 0px 5vw;
+          min-width: 450px;
+          max-width: 750px;
+        }
+      }
+      @media only screen and (min-width: 825px){
+        .articleBox{
+          background-image: linear-gradient(0deg, rgb(215, 215, 215), rgb(245, 245, 245));
+          width: 46vw;
+          margin: 25px 0vw 0px 2.5vw;
+          display: inline-block;
+        }
+      }
+      .articleBox:hover{
+        box-shadow: 0px 0px 10px rgba(40, 40, 40, 1);
+      }
+      .articleBox h3{
+        margin: 0px;
+        padding: 60px 0px;
+        padding-bottom: 10px;
+        font-size: 40px;
+      }
+      .articleBox h6{
+        margin: 0px;
+        padding: 0px 15px;
+        font-size: 16px;
+      }
+      .coverFade{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        text-align: justify;
+        background-color: rgba(0, 0, 0, 0);
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        backdrop-filter: blur(0px);
+        transition: 0.4s;
+        cursor: pointer;
+      }
+      .rant{
+        background-image: linear-gradient(25deg, rgb(215, 215, 215), rgb(245, 245, 245));
+        max-height: 90vh;
+        width: 750px;
+        margin-top: 5vh;
+        margin-left: calc(50vw - 375px);
+        border-radius: 8px;
+        box-shadow: 0px 0px 7px rgba(50, 50, 50, 0.5);
+        opacity: 0;
+        transition: 0.4s;
+        cursor: default;
+      }
+      @media only screen and (max-width: 825px){
+        .rant{
+          background-image: linear-gradient(25deg, rgb(215, 215, 215), rgb(245, 245, 245));
+          width: 90vw;
+          margin-left: 5vw;
+          margin: 5vh 0vw 0px 5vw;
+          min-width: 450px;
+          max-width: 750px;
+          border-radius: 8px;
+        }
+      }
+      .rantTitle{
+        padding: 60px 0px 0px 0px;
+        text-align: center;
+        font-size: 24px;
+        cursor: text;
+      }
+      .rantContent{
+        padding: 15px 45px 35px 40px;
+        font-size: 16px;
+        cursor: text;
+      }
+    </style>
+    <script>
+      var hoverRant = 0;
+      var rantStat = 0;
+      function changeText(text){
+        if(text == 1){
+          document.getElementById("rantTitle").innerHTML = "Sand";
+          document.getElementById("rantContent").innerHTML = "As a kid, sand was the most interesting and terrifying thing you could encounter; like the modern day female. It was the cooler cousin to dirt. You, a six year old, could build an actual castle that could house very small wildlife. Which is why I immediately abandoned the structure faster than an obese man at the salad bar. The ocean was already a fairly barbaric place. Eat or be eaten, as some would say. But if you weren’t in the water, the sand wasn’t the best next option. Jellyfish and crabs are in the sand. People go as far as calling a few weeks of the year “Jellyfish season.” Coast dwellers actually make a day of it. Imagine being in school for a first aid class and the topic goes from tending to a cut on the knee to spontaneous beach electrocution. I would move town if just walking could mean death to the faint of heart. I swear sand houses some of the scariest things on this planet. I would go face to face with a shark while wearing raw meat on my fanny than stand within pissing distance of those weaponized crabs. That’s God's way of keeping us fleshy humans in check. When I was a kid quicksand was worse than AIDS. I thought on my 18th I would just be walking to my car, take a wrong step, and die. At any time or place, quicksand could be the end of any of us. But let me tell you that I’ve been on this planet for over a decade and a half, but somehow never seen this silent killer. Overall, unless you’re in school playground sandbox, which I legally cannot be, it’s a safe bet that you should finalize your last will and testament before venturing too far from society.";
+        }
+        if(text == 2){
+          document.getElementById("rantTitle").innerHTML = "Road Trips";
+          document.getElementById("rantContent").innerHTML = "Road trips have to be the worst way to spend vacation days; second to camping. Gas isn’t cheap and most families opt to fly to their destination, so let’s do the complete opposite. The destinations are always something that is so unbelievably boring that the passengers in the car attempt to force an aneurysm. If you have never been on a road trip, understand that you are the lucky one percent of our population that hasn’t yet heard 12 hours of complaints in a confined space with people that you’ve grown sick of years ago. But it is truly magical how polar and confused the weather is when you become a human pillow on a road trip. One moment, you’re drenched in someone else’s sweat; and the next, you’re inside of a scale 7 hurricane. There’s always that glimpse of hope when you see the rest stop sign on the highway. It’s a piece of heaven that we were allowed to keep. The relief of an air conditioned public bathroom on a road trip is unparalleled. And snack machines are like pockets of paradise. Cheap five star meal eaten on a bench next to a five hundred pound trucker that has better eating etiquette than half of your family. You can buy one bag of chips and have heart disease faster than malaria on a small African child. The snacks that are in those machines though are just rude. 12 packs of double chocolate double stuffed double dipped double diabetes Oreos for a quarter? It’d be a sin to not buy seven. Then you get back in your car whose interior in the course of four minutes had shrunk 14 cubic feet.";
+        }
+        if(text == 3){
+          document.getElementById("rantTitle").innerHTML = "Love";
+          document.getElementById("rantContent").innerHTML = "The first type of love is the most common, and the least meaningful. I call it <q>The Starbucks Love.</q> Commonly used by white chicks more basic than the plot for Dora the Explorer, this holds the same value as saying that you absolutely LOVE the pumpkin spice Starbucks lattes. It means nothing, but to just like something in the 21st century, is like saying Inside Out was a good movie. It’s borderline hate speech. It isn’t mutual, and unfortunately it perfectly represents how I feel about Emma Watson. The next type of love is the fondness one has for their family. It’s what intellects call Stockholm Syndrome. Wikipedia says, <q>Stockholm syndrome is a condition which causes hostages to develop a psychological alliance with their captors as a survival strategy during captivity.</q> This pretty much sums up why smarter families don’t enjoy each other’s company. Alabama is a prime example of this theory because their linear family tree has a collective IQ that matches that of an empty Chef Boyardee ravioli can. The final type is called attachment love. This occurs when two people share plenty of interests; such as the Yankees or Nickelback. These people usually die together after being crucified for liking the Yankees and Nickelback. This type of attraction leads to an attachment, and like conjoined twins, when one leaves, one or both die. This is obviously the most dangerous type of love, which is why my emotional barricade is stronger than the Great Wall of China.";
+        }
+        if(text == 4){
+          document.getElementById("rantTitle").innerHTML = "S'mores";
+          document.getElementById("rantContent").innerHTML = "There’s no such thing as a good self made smore. It’s like a pizza. It tastes better after someone else has put their hands on it. It’s a relatively easy recipe, but I swear the execution is more complex than a damn Souffle. The graham crackers out of the package can either taste like a spongy Windex or crumble with the wind. I’ve never heard of any other food that is gone with a breeze. The structural integrity of those crackers are easily compared to that of a dying dandelion. Next is the Hershey bar that is packaged like Fort Knox. You could use a different chocolate, but know that 9-1-1 has been called. Nobody wants to ruin the chocolate bar but the wrapper for children’s candy is more intricate than heart surgery. There’s always someone that can do it better after you embarrass yourself trying to open it. The number of chocolate pieces you put on a smore determine how loved you were as a child. Your parents might have raised you to only use a conservative two chocolates like the Great Depression was right around the corner. You might put on three to ensure that every bite has chocolate, this is Normal. If you want to take out a second Mortgage on your house, then you can completely overlap your cracker with half a Hershey's bar. Then there are anarchists that only wish to watch the world suffer that use full chocolate bar on one s'more. The Bill Gates and Jeff Bezos' of the world feel dirty doing this. Like, what a power move. These people have accepted that they are as unloved as Caitlyn Jenner, but are capable of making the greatest tasting smore ever.";
+        }
+      };
+      function FadePop(text){
+        changeText(text);
+        document.getElementById("coverFade").style.zIndex = "1";
+        document.getElementById("coverFade").style.backdropFilter = "blur(15px)";
+        document.getElementById("coverFade").style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+        document.getElementById("rant").style.opacity = "1";
+        window.setTimeout(changeVar(), 100);
+      };
+      function changeVar(){
+        rantStat = 1;
+      };
+      function FadeBop(){
+        document.getElementById("coverFade").style.backdropFilter = "blur(0px)";
+        document.getElementById("coverFade").style.backgroundColor = "rgba(0, 0, 0, 0)";
+        document.getElementById("rant").style.opacity = "0";
+        rantStat = 0;
+        setTimeout(function(){
+          document.getElementById("coverFade").style.zIndex = "-1";
+        }, 400);
+      };
+      function setVarOn(){
+        hoverRant = 1;
+      };
+      function setVarOff(){
+        hoverRant = 0;
+      };
+      function closeRant(){
+        if((rantStat == 1) && (hoverRant == 0)){
+          FadeBop();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="bodyContainer">
+      <div class="pageHeader">
+        <h1>Sabi's Rants</h1>
+      </div>
+      <div style="margin-top: 100px; margin-bottom: 25px;">
+        <div class="articleBox" onclick="FadePop(1)">
+          <h3>Sand</h3>
+          <h6>"That’s God's way of keeping us fleshy humans in check."</h6>
+        </div>
+        <div class="articleBox" onclick="FadePop(2)">
+          <h3>Road Trips</h3>
+          <h6>"- eaten on a bench next to a five hundred pound trucker..."</h6>
+        </div>
+        <div class="articleBox" onclick="FadePop(3)">
+          <h3>Love</h3>
+          <h6>"- like conjoined twins, when one leaves, one or both die."</h6>
+        </div>
+        <div class="articleBox" onclick="FadePop(4)">
+          <h3>S'mores</h3>
+          <h6>"- the Great Depression was right around the corner."</h6>
+        </div>
+      </div>
+      <div class="coverFade" id="coverFade" onclick="closeRant()">
+        <div class="rant" id="rant" onmouseover="setVarOn()" onmouseout="setVarOff()">
+          <h4 class="rantTitle" id="rantTitle">Sand</h4>
+          <div class="rantContent" id="rantContent">As a kid, sand was the most interesting and terrifying thing you could encounter; like the modern day female. It was the cooler cousin to dirt. You, a six year old, could build an actual castle that could house very small wildlife. Which is why I immediately abandoned the structure faster than an obese man at the salad bar. The ocean was already a fairly barbaric place. Eat or be eaten, as some would say. But if you weren’t in the water, the sand wasn’t the best next option. Jellyfish and crabs are in the sand. People go as far as calling a few weeks of the year “Jellyfish season.” Coast dwellers actually make a day of it. Imagine being in school for a first aid class and the topic goes from tending to a cut on the knee to spontaneous beach electrocution. I would move town if just walking could mean death to the faint of heart. I swear sand houses some of the scariest things on this planet. I would go face to face with a shark while wearing raw meat on my fanny than stand within pissing distance of those weaponized crabs. That’s God's way of keeping us fleshy humans in check. When I was a kid quicksand was worse than AIDS. I thought on my 18th I would just be walking to my car, take a wrong step, and die. At any time or place, quicksand could be the end of any of us. But let me tell you that I’ve been on this planet for over a decade and a half, but somehow never seen this silent killer. Overall, unless you’re in school playground sandbox, which I legally cannot be, it’s a safe bet that you should finalize your last will and testament before venturing too far from society.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
