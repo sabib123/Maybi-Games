@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+      body{
+        margin: 0px;
+        font-family: Quicksand;
+      }
+      body::selection {
+        background: rgb(0, 0, 0);
+      }
+      #topBar{
+        height: 80px;
+        width: 100vw;
+        background-color: rgba(150, 40, 250, 1);
+        overflow: none;
+        box-shadow: 0px 0px 10px black;
+        text-align: left;
+      }
+      #title{
+        color: white;
+        font-size: 30px;
+        line-height: 30px;
+        padding: 25px 0px 0px 0px;
+        margin-left: 25px;
+        user-select: none;
+        white-space: nowrap;
+      }
+      .rantContainer{
+        margin: 0px;
+        padding: 0px;
+        max-width: 1180px;
+      }
+      @media only screen and (min-width: 1180px) {
+        .rantContainer{
+          margin-left: calc(50vw - 590px);
+        }
+      }
+      @media only screen and (max-width: 1179px) {
+        .rantContainer{
+          text-align: center;
+        }
+      }
+      .rant{
+        transform: perspective(1px) translateZ(0);
+        transition-duration: 0.3s;
+        color: rgba(150, 40, 250, 1);
+        font-weight: 400;
+        border: solid 4px rgba(150, 40, 250, 1);
+        width: 350px;
+        height: 150px;
+        margin: 20px;
+        background-color: white;
+        cursor: pointer;
+        font-family: Quicksand;
+        overflow: hidden;
+        box-shadow: 0px 0px 5px black;
+      }
+      .rant:focus{
+        outline: 0;
+      }
+      .rant:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(150, 40, 250, 1);
+        transform: scaleY(0);
+        transform-origin: 50% 100%;
+        transition-property: transform;
+        transition-duration: 0.3s;
+      }
+      .rant:hover:before{
+        transform: scaleY(1);
+      }
+      .rantTitle{
+        font-size: 25px;
+        transition-duration: 0.3s;
+      }
+      .rant:hover .rantTitle{
+        margin-bottom: 35px;
+        color: white;
+      }
+      .rantThumb{
+        position: absolute;
+        top: 100px;
+        padding: 0px 15px;
+        font-size: 15px;
+        transition-duration: 0.3s;
+        color: white;
+        opacity: 0;
+      }
+      .rant:hover .rantThumb{
+        top: 80px;
+        opacity: 1;
+      }
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+    <div class="topBar" id="topBar">
+      <div class="title" id="title">Sabi's Rants</div>
+    </div>
+    <div class="rantContainer">
+      <button class="rant">
+        <div class="rantTitle">Sand</div>
+        <div class="rantThumb">"That’s God's way of keeping us fleshy humans in check."</div>
+      </button>
+      <button class="rant">
+        <div class="rantTitle">Road Trips</div>
+        <div class="rantThumb">"- eaten on a bench next to a five hundred pound trucker..."</div>
+      </button>
+      <button class="rant">
+        <div class="rantTitle">Love</div>
+        <div class="rantThumb">"- like conjoined twins, when one leaves, one or both die."</div>
+      </button>
+      <button class="rant">
+        <div class="rantTitle">S'mores</div>
+        <div class="rantThumb">"like the Great Depression was right around the corner."</div>
+      </button>
+    </div>
+  </body>
+</html>
